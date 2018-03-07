@@ -1,0 +1,3 @@
+- "sudo systemctl enable ntpd && sudo systemctl start ntpd"
+- "sudo systemctl disable firewalld && sudo systemctl stop firewalld"
+- "sudo sed -i --follow-symlinks 's/^SELINUX=.*/SELINUX=disabled/g' /etc/sysconfig/selinux"
