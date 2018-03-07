@@ -21,8 +21,8 @@ Vagrant.configure("2") do |config|
       srv.vm.hostname = servers["name"] # Set the hostname of the VM
       srv.vm.network "private_network", ip: servers["ip"], :adapater=>2 # Add a second adapater with a specified IP
       srv.vm.network :forwarded_port, guest: 22, host: servers["port"] # Add a port forwarding rule
-      srv.vm.provision :shell, inline: "sed -i'' '/^127.0.0.1\\t#{srv.vm.hostname}\\t#{srv.vm.hostname}$/d' /etc/hosts"
- 
+      srv.vm.provision :shell, inline: "sudo sed -i'' '/^127.0.0.1\\t#{srv.vm.hostname}\\t#{srv.vm.hostname}$/d' /etc/hosts"
+
       srv.vm.provider :virtualbox do |vb|
         vb.name = servers["name"] # Name of the VM in VirtualBox
         vb.cpus = servers["cpus"] # How many CPUs to allocate to the VM
